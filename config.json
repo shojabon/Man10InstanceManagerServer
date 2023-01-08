@@ -11,6 +11,9 @@
       "disabled": [1300]
     }
   },
-  "bungeeCordAPIEndpoint": "http://127.0.0.1:81/servers",
+  "bungeeCordAPI": {
+    "endpoint": "http://127.0.0.1:81/servers",
+    "apiKey": ""
+  },
   "hostPort": 2300
 }

@@ -26,9 +26,6 @@ class InstanceCreateMethod:
                 "template": {
                     "type": "string"
                 },
-                "registerBungee": {
-                    "type": "boolean"
-                },
                 "assignPort": {
                     "type": "array"
                 },
@@ -60,7 +57,7 @@ class InstanceCreateMethod:
         self.register_endpoint()
 
     def register_endpoint(self):
-        @self.instance_method.blueprint.route("/", methods=["POST"])
+        @self.instance_method.blueprint.route("/instance", methods=["POST"])
         @flask_mat_response_wrapper()
         @flask_json_schema(self.schema)
         def instance_create(json_body):
@@ -122,7 +119,7 @@ class InstanceCreateMethod:
                         "name": name,
                         "host": json_body["register_on_bungee_cord"]["host"],
                         "port": ports_property.get("25565/tcp")
-                    })
+                    }, headers={"x-api-key": self.instance_method.main.bungee_cord_api_key})
 
                     if bungee_register_request.status_code != 200:
                         container.stop()

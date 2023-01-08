@@ -32,6 +32,7 @@ class Man10InstanceManager:
     def __init__(self):
         # variables
         self.flask = Flask(__name__)
+        self.flask.url_map.strict_slashes = False
         self.templates = {}
         self.config = {}
 
@@ -44,7 +45,8 @@ class Man10InstanceManager:
         self.config = json.loads(config_file.read())
         config_file.close()
 
-        self.bungee_cord_api_endpoint = self.config["bungeeCordAPIEndpoint"]
+        self.bungee_cord_api_endpoint = self.config["bungeeCordAPI"]["endpoint"]
+        self.bungee_cord_api_key = self.config["bungeeCordAPI"]["apiKey"]
 
         # load templates
 

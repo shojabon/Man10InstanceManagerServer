@@ -34,7 +34,7 @@ class InstanceListMethod:
         self.register_endpoint()
 
     def register_endpoint(self):
-        @self.instance_method.blueprint.route("/", methods=["GET"])
+        @self.instance_method.blueprint.route("/instance", methods=["GET"])
         @flask_mat_response_wrapper()
         def instance_list():
             try:

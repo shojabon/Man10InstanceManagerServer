@@ -42,7 +42,7 @@ class InstanceStopMethod:
         self.register_endpoint()
 
     def register_endpoint(self):
-        @self.instance_method.blueprint.route("/", methods=["DELETE"])
+        @self.instance_method.blueprint.route("/instance", methods=["DELETE"])
         @flask_mat_response_wrapper()
         @flask_json_schema(self.schema)
         def instance_stop(json_body):
@@ -64,7 +64,7 @@ class InstanceStopMethod:
 
                     requests.delete(self.instance_method.main.bungee_cord_api_endpoint, json={
                         "name": name
-                    })
+                    }, headers={"x-api-key": self.instance_method.main.bungee_cord_api_key})
 
                 return "success"
             except Exception as e:
