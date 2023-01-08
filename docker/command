@@ -1,2 +1,0 @@
-docker run -itd -p 2300:2300 -v /manager/config.json:/home/man10/docker/Man10InstanceManager/config.json -v /var/run/docker.sock:/var/run/docker.sock --name man10-instance-manager man10-in
-stance-manager

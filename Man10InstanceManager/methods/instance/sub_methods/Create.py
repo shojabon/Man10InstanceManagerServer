@@ -57,7 +57,7 @@ class InstanceCreateMethod:
         self.register_endpoint()
 
     def register_endpoint(self):
-        @self.instance_method.blueprint.route("/instance", methods=["POST"])
+        @self.instance_method.blueprint.route("", methods=["POST"])
         @flask_mat_response_wrapper()
         @flask_json_schema(self.schema)
         def instance_create(json_body):

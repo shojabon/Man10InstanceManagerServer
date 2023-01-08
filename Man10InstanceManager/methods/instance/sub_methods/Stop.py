@@ -42,7 +42,7 @@ class InstanceStopMethod:
         self.register_endpoint()
 
     def register_endpoint(self):
-        @self.instance_method.blueprint.route("/instance", methods=["DELETE"])
+        @self.instance_method.blueprint.route("", methods=["DELETE"])
         @flask_mat_response_wrapper()
         @flask_json_schema(self.schema)
         def instance_stop(json_body):

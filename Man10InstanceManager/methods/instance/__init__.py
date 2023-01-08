@@ -17,7 +17,7 @@ class InstanceMethod:
 
     def __init__(self, main: Man10InstanceManager):
         self.main = main
-        self.blueprint = Blueprint('instance', __name__, url_prefix="/")
+        self.blueprint = Blueprint('instance', __name__, url_prefix="/instance")
         InstanceCreateMethod(self)
         InstanceStopMethod(self)
         InstanceListMethod(self)
